@@ -1,0 +1,42 @@
+@startuml Rings_Intersection
+
+start
+
+:Встановити WIDTH, HEIGHT;
+:Задати radius;
+:Обчислити offset;
+:Обчислити 4 центри кіл;
+
+repeat
+    :Створити Circle(center, radius, sides);
+    :Намалювати контур (draw_polygon);
+repeat while (Є ще центр?) is (так)
+
+:Встановити step;
+:Створити масив кольорів;
+
+repeat
+    :x = наступне значення;
+
+    repeat
+        :y = наступне значення;
+
+        :c1 = circle1.has_point(x,y);
+        :c2 = circle2.has_point(x,y);
+        :c3 = circle3.has_point(x,y);
+        :c4 = circle4.has_point(x,y);
+
+        :count = кількість True серед c1..c4;
+
+        if (count > 0?) then (так)
+            :Обрати колір з масиву за значенням count;
+            :Намалювати колір;
+        endif
+
+    repeat while (Є ще y?) is (так)
+
+repeat while (Є ще x?) is (так)
+
+stop
+
+@enduml
